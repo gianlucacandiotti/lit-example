@@ -4,5 +4,11 @@
   "description": "Example project for showcasing Lit web components.",
   "main": "index.js",
   "author": "Gianluca Candiotti",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^4.5.2"
+  }
 }
