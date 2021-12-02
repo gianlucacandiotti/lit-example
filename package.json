@@ -1,0 +1,8 @@
+{
+  "name": "lit-example",
+  "version": "1.0.0",
+  "description": "Example project for showcasing Lit web components.",
+  "main": "index.js",
+  "author": "Gianluca Candiotti",
+  "license": "MIT"
+}
