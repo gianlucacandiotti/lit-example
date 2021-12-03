@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Input Example</title>
+
+    <link href="styles.css" rel="stylesheet" />
+    <script type="module" src="./custom-input.bundled.js"></script>
+  </head>
+
+  <body>
+    <custom-input value="My default value" class="first-input">
+      <span slot="label">My first input:</label>
+    </custom-input>
+
+    <div style="margin-bottom: 20px">
+      Listen to events: <span id="event-dump"></span>
+    </div>
+
+    <custom-input value="" class="second-input">
+      <span slot="label">Another input:</label>
+    </custom-input>
+
+    <script>
+      const handleInputEvent = (e) => {
+        const eventDumpElement = document.querySelector("#event-dump");
+        eventDumpElement.innerHTML = e.target.value
+      };
+
+      const customInputElement = document.querySelector("custom-input");
+      customInputElement.addEventListener("value-changed", handleInputEvent);
+    </script>
+  </body>
+</html>

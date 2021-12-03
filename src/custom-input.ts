@@ -5,7 +5,7 @@ import { customElement, property, query } from "lit/decorators.js";
  * An example custom input element.
  *
  * @slot label - The input's label.
- * @fires change - Emitted when the control's value changes.
+ * @fires input - Emitted when the control's value changes.
  * @fires clear - Emitted when the clear button is activated.
  * @csspart label - The input's label.
  */
@@ -13,7 +13,20 @@ import { customElement, property, query } from "lit/decorators.js";
 export class CustomInput extends LitElement {
   static override styles = css`
     :host {
-      display: block;
+      --height: 40px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-wrapper {
+      display: flex;
+      gap: 6px;
+    }
+
+    input {
+      height: var(--height);
     }
   `;
 
@@ -23,19 +36,29 @@ export class CustomInput extends LitElement {
   /** The input's value attribute. */
   @property() value = "";
 
-  private _handleChange() {
+  handleInput(): void {
     this.value = this.input.value;
+    this.dispatchEvent(new CustomEvent("value-changed"));
   }
 
-  private _handleClearClick() {}
+  handleClearClick(): void {
+    this.value = "";
+  }
 
   override render() {
     return html`
       <label part="label" for="custom-input-control">
         <slot name="label"></slot>
       </label>
-      <input id="custom-input-control" @change=${this._handleChange} />
-      <button @click=${this._handleClearClick}>Clear Value</button>
+
+      <div class="input-wrapper">
+        <input
+          id="custom-input-control"
+          .value=${this.value}
+          @input=${this.handleInput}
+        />
+        <button @click=${this.handleClearClick}>Clear Value</button>
+      </div>
     `;
   }
 }

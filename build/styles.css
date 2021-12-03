@@ -1,0 +1,14 @@
+custom-input::part(label) {
+  font-size: 18px;
+  font-weight: 600;
+  color: coral;
+}
+
+.first-input {
+  --height: 20px;
+  margin-bottom: 20px;
+}
+
+.second-input {
+  --height: 60px;
+}
