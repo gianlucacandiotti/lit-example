@@ -12,7 +12,7 @@
 
   <body>
     <custom-input value="My default value" class="first-input">
-      <span slot="label">My first input:</label>
+      <span slot="label">My first input:</span>
     </custom-input>
 
     <div style="margin-bottom: 20px">
@@ -20,17 +20,17 @@
     </div>
 
     <custom-input value="" class="second-input">
-      <span slot="label">Another input:</label>
+      <span slot="label">Another input:</span>
     </custom-input>
 
     <script>
       const handleInputEvent = (e) => {
         const eventDumpElement = document.querySelector("#event-dump");
-        eventDumpElement.innerHTML = e.target.value
+        eventDumpElement.innerHTML = e.target.value;
       };
 
       const customInputElement = document.querySelector("custom-input");
-      customInputElement.addEventListener("value-changed", handleInputEvent);
+      customInputElement.addEventListener("value-change", handleInputEvent);
     </script>
   </body>
 </html>

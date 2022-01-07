@@ -3,7 +3,7 @@ import { LitElement } from "lit";
  * An example custom input element.
  *
  * @slot label - The input's label.
- * @fires input - Emitted when the control's value changes.
+ * @fires value-change - Emitted when the control's value changes.
  * @fires clear - Emitted when the clear button is activated.
  * @csspart label - The input's label.
  */

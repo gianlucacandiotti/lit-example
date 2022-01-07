@@ -1,0 +1,11 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.custom-input::part(label) {
+  font-size: 18px;
+  font-weight: 600;
+  color: coral;
+}

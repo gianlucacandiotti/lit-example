@@ -10,7 +10,7 @@ import { customElement, property, query } from "lit/decorators.js";
  * An example custom input element.
  *
  * @slot label - The input's label.
- * @fires input - Emitted when the control's value changes.
+ * @fires value-change - Emitted when the control's value changes.
  * @fires clear - Emitted when the clear button is activated.
  * @csspart label - The input's label.
  */
@@ -22,10 +22,11 @@ let CustomInput = class CustomInput extends LitElement {
     }
     handleInput() {
         this.value = this.input.value;
-        this.dispatchEvent(new CustomEvent("value-changed"));
+        this.dispatchEvent(new CustomEvent("value-change"));
     }
     handleClearClick() {
         this.value = "";
+        this.dispatchEvent(new CustomEvent("clear"));
     }
     render() {
         return html `
